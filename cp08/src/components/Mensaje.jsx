@@ -1,0 +1,1 @@
+export const Mensaje = props => (<p>hola 2 ={props.msg} </p>);

@@ -7,6 +7,7 @@ import {Mensaje} from './components/Mensaje'
 import {Mensaje2} from './components/Mensaje2'
 */
 import {TodoList} from './components/TodoList'
+import {TodoForm} from './components/TodoForm'
 
 
 function App() {
@@ -32,12 +33,28 @@ function App() {
 
   };
 
- 
+  const handlerSubmit = (todo) =>
+  {
+      console.log("Texto: "+todo);
+
+    const newTodo ={
+      id: todos.at(-1).id +1,
+      description: todo,
+      realizado: false,
+
+    };
+
+    console.log("todo id: "+newTodo.id);
+
+
+    setTodos((prevTodos) => [... prevTodos, newTodo]);
+  };
+
 
   return (
     <div className="App">
      <TodoList todos= {todos} onToggle={updateTodo}/>
-     
+     <TodoForm onSubmit={handlerSubmit}/>
     </div>
   )
 }

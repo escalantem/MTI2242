@@ -1,0 +1,1 @@
+export const Hola = () => <p>Otra cosa!!</p>;
