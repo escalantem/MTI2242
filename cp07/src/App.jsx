@@ -1,34 +1,41 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { Multiple } from './Multiple'
+/*import {Demo} from './components/Demo'
+import  {Hola} from './components/Hola'
+import {Mensaje} from './components/Mensaje'
+import {Mensaje2} from './components/Mensaje2'
+*/
+import {TodoList} from './components/TodoList'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
+  const tareasPorRealizar =[
+
+    {id:1, description:"Tarea 1...", realizado:true},
+    {id:2, description:"Tarea 2 otro ejemplo...", realizado:true},
+    {id:3, description:"Tarea 3 mas ejemplos...", realizado:false},
+    {id:4, description:"Tarea 4 mas ejemplos...", realizado:false},
+    {id:5, description:"Tarea 5 Otra cosa..."},
+
+  ]
+
+  const [todos, setTodos] = useState(tareasPorRealizar);
+  const updateTodo = (id) =>{
+
+    const newTodos = [...todos];
+    const todoToToggle = newTodos.findIndex((todo) => todo.id === id);
+    newTodos[todoToToggle].realizado = !newTodos[todoToToggle].realizado;
+    console.log("id: "+ id + "  - Estado: " +  newTodos[todoToToggle].realizada);
+    setTodos(newTodos);
+
+  };
+
 
   return (
     <div className="App">
-      <Multiple></Multiple>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <TodoList todos= {todos} onToggle={updateTodo}/>
     </div>
   )
 }
