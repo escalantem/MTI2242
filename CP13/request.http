@@ -1,0 +1,16 @@
+POST http://localhost:3001/api/users http/1.1
+Content-Type: application/json
+
+{
+
+ "name":"Luis gomez",
+ "age":"34",
+ "email":"lgomez@mail.com"
+
+}
+
+###
+GET  http://localhost:3001/api/users http/1.1
+
+###
+GET  http://localhost:3001/api/users/63813f0d93ef767846fd7faa http/1.1
