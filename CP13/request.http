@@ -3,9 +3,9 @@ Content-Type: application/json
 
 {
 
- "name":"Luis gomez",
+ "name":"Maria Gomez",
  "age":"34",
- "email":"lgomez@mail.com"
+ "email":"mgomez@mail.com"
 
 }
 
@@ -14,3 +14,18 @@ GET  http://localhost:3001/api/users http/1.1
 
 ###
 GET  http://localhost:3001/api/users/63813f0d93ef767846fd7faa http/1.1
+
+###
+PUT http://localhost:3001/api/users/63813f0d93ef767846fd7faa http/1.1
+Content-Type: application/json
+
+{
+   "name":"Luis Alberto Gomez",
+   "age":"34",
+   "email":"lgomez@mail.com"
+ 
+}
+
+###
+
+DELETE http://localhost:3001/api/users/638212a031ba3fcfe4b934f8 http/1.1
